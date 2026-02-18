@@ -4,8 +4,7 @@ import { View } from "react-native";
 import { Appbar, Text, IconButton } from "react-native-paper";
 import { evaluate } from "mathjs";
 import CTextInput from "./CTextInput";
-import CButton from "./CButton";
-import { Background } from "@react-navigation/elements";
+import CBottomNav from "./CBottomNav";
 
 const messages = [
   "7",
@@ -36,9 +35,9 @@ export default function CAppbar() {
   const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
-    if (clicked) setLocation(address);
-    setClicked(false);
-  }, []);
+    setLocation(address);
+    console.log(location);
+  }, [clicked]);
 
   return (
     <View
@@ -83,7 +82,10 @@ export default function CAppbar() {
           icon="navigation"
           iconColor="white"
           size={20}
-          onPress={() => console.log("Pressed")}
+          onPress={() => {
+            setClicked((c) => !c);
+            console.log(clicked);
+          }}
           style={{ transform: "rotate(45deg);" }}
         />
       </Appbar.Header>
@@ -93,7 +95,21 @@ export default function CAppbar() {
           height: "100%",
         }}
       >
-        <View style={{ height: "100%", width: "100%" }}></View>
+        <View
+          style={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <CBottomNav
+            location={location}
+            style={{
+              paddingBottom: 40,
+            }}
+          />
+        </View>
       </View>
     </View>
   );
