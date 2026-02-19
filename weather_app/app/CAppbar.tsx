@@ -1,10 +1,11 @@
 import * as Location from "expo-location";
 import React, { useState, useEffect } from "react";
-import { View } from "react-native";
+import { View, ActivityIndicator, BlurEvent } from "react-native";
 import { Appbar, Text, IconButton } from "react-native-paper";
 import { evaluate } from "mathjs";
 import CTextInput from "./CTextInput";
 import CBottomNav from "./CBottomNav";
+import useLocation from "./useLocation";
 
 const messages = [
   "7",
@@ -30,14 +31,15 @@ const messages = [
 ];
 
 export default function CAppbar() {
+  const { address: detectedAddress } = useLocation();
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
   const [clicked, setClicked] = useState(false);
 
-  useEffect(() => {
-    setLocation(address);
-    console.log(location);
-  }, [clicked]);
+  // useEffect(() => {
+  //   setLocation(detectedAddress ?? address);
+  //   console.log(location);
+  // }, [clicked, address, detectedAddress]);
 
   return (
     <View
@@ -61,6 +63,10 @@ export default function CAppbar() {
         }}
       >
         <CTextInput
+          onBlur={(e: any) => {
+            setClicked((c) => !c);
+            setLocation(address);
+          }}
           onChangeText={(text: string) => setAddress(text)}
           textColor="white"
           label="Location"
@@ -84,7 +90,7 @@ export default function CAppbar() {
           size={20}
           onPress={() => {
             setClicked((c) => !c);
-            console.log(clicked);
+            setLocation(detectedAddress);
           }}
           style={{ transform: "rotate(45deg);" }}
         />

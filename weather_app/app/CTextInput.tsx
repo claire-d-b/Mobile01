@@ -3,6 +3,7 @@ import { Button, TextInput } from "react-native-paper";
 import { GestureResponderEvent } from "react-native";
 
 interface Props {
+  onBlur: (args: any) => void;
   onChangeText: (text: string) => void;
   label: string;
   msg: string;
@@ -19,6 +20,7 @@ interface Props {
 }
 
 export default function CTextInput({
+  onBlur,
   onChangeText,
   label,
   msg,
@@ -35,6 +37,7 @@ export default function CTextInput({
 }: Props) {
   return (
     <TextInput
+      onBlur={onBlur}
       onChangeText={onChangeText}
       label={label}
       value={msg}
