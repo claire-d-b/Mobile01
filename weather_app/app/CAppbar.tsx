@@ -80,12 +80,13 @@ export default function CAppbar() {
             underlineColor="white"
             activeUnderlineColor="white"
             selectionColor="white"
-            outlineStyle={{
+            contentStyle={{}}
+            style={{
+              backgroundColor: "transparent",
+              width: "75%",
               borderRadius: 15,
               borderColor: "white",
             }}
-            contentStyle={{}}
-            style={{ backgroundColor: "transparent", width: "75%" }}
           />
         </View>
         <IconButton

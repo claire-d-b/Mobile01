@@ -15,7 +15,6 @@ interface Props {
   underlineColor: string;
   activeUnderlineColor: string;
   selectionColor: string;
-  outlineStyle: {};
   contentStyle: {};
   style: {};
 }
@@ -33,7 +32,6 @@ export default function CTextInput({
   underlineColor,
   activeUnderlineColor,
   selectionColor,
-  outlineStyle,
   contentStyle,
   style,
 }: Props) {
@@ -50,7 +48,6 @@ export default function CTextInput({
       underlineColor={underlineColor}
       activeUnderlineColor={activeUnderlineColor}
       selectionColor={selectionColor}
-      outlineStyle={outlineStyle}
       contentStyle={contentStyle}
       style={style}
     />
