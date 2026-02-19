@@ -1,7 +1,7 @@
 import * as Location from "expo-location";
 import React, { useState, useEffect } from "react";
 import { View, ActivityIndicator, BlurEvent } from "react-native";
-import { Appbar, Text, IconButton } from "react-native-paper";
+import { Appbar, Text, IconButton, Icon } from "react-native-paper";
 import { evaluate } from "mathjs";
 import CTextInput from "./CTextInput";
 import CBottomNav from "./CBottomNav";
@@ -56,27 +56,38 @@ export default function CAppbar() {
           alignItems: "center",
         }}
       >
-        <CTextInput
-          onBlur={(e: any) => {
-            setLocation(address);
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "flex-start",
+            alignItems: "center",
           }}
-          onChangeText={(text: string) => setAddress(text)}
-          textColor="white"
-          label="Location"
-          msg={address}
-          variant="flat"
-          outlineColor="white"
-          activeOutlineColor="white"
-          underlineColor="white"
-          activeUnderlineColor="white"
-          selectionColor="white"
-          outlineStyle={{
-            borderRadius: 15,
-            borderColor: "white",
-          }}
-          contentStyle={{}}
-          style={{ backgroundColor: "transparent", width: "75%" }}
-        />
+        >
+          <Icon source="magnify" color="white" size={20} />
+          <CTextInput
+            onBlur={(e: any) => {
+              setLocation(address);
+            }}
+            onChangeText={(text: string) => setAddress(text)}
+            textColor="white"
+            label="Location"
+            msg={address}
+            placeholder="Search location..."
+            variant="flat"
+            outlineColor="white"
+            activeOutlineColor="white"
+            underlineColor="white"
+            activeUnderlineColor="white"
+            selectionColor="white"
+            outlineStyle={{
+              borderRadius: 15,
+              borderColor: "white",
+            }}
+            contentStyle={{}}
+            style={{ backgroundColor: "transparent", width: "75%" }}
+          />
+        </View>
         <IconButton
           icon="navigation"
           iconColor="white"

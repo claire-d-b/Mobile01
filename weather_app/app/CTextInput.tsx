@@ -7,6 +7,7 @@ interface Props {
   onChangeText: (text: string) => void;
   label: string;
   msg: string;
+  placeholder: string;
   variant: "flat" | "outlined";
   textColor: string;
   outlineColor: string;
@@ -24,6 +25,7 @@ export default function CTextInput({
   onChangeText,
   label,
   msg,
+  placeholder,
   variant,
   textColor,
   outlineColor,
@@ -41,6 +43,7 @@ export default function CTextInput({
       onChangeText={onChangeText}
       label={label}
       value={msg}
+      placeholder={placeholder}
       mode={variant}
       textColor={textColor}
       outlineColor={outlineColor}
