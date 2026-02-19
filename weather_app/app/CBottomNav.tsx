@@ -37,7 +37,9 @@ const TodayRoute = ({ location }: Prop) => (
     }}
   >
     <Text>Today</Text>
-    <Text>{location}</Text>
+    <View style={{ padding: 35 }}>
+      <Text>{location}</Text>
+    </View>
   </View>
 );
 
@@ -54,7 +56,9 @@ const WeeklyRoute = ({ location }: Prop) => (
     }}
   >
     <Text>Weekly</Text>
-    <Text>{location}</Text>
+    <View style={{ padding: 35 }}>
+      <Text>{location}</Text>
+    </View>
   </View>
 );
 
