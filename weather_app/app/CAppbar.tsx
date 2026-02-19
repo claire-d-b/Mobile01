@@ -34,12 +34,6 @@ export default function CAppbar() {
   const { address: detectedAddress } = useLocation();
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");
-  const [clicked, setClicked] = useState(false);
-
-  // useEffect(() => {
-  //   setLocation(detectedAddress ?? address);
-  //   console.log(location);
-  // }, [clicked, address, detectedAddress]);
 
   return (
     <View
@@ -64,7 +58,6 @@ export default function CAppbar() {
       >
         <CTextInput
           onBlur={(e: any) => {
-            setClicked((c) => !c);
             setLocation(address);
           }}
           onChangeText={(text: string) => setAddress(text)}
@@ -89,7 +82,6 @@ export default function CAppbar() {
           iconColor="white"
           size={20}
           onPress={() => {
-            setClicked((c) => !c);
             setLocation(detectedAddress);
           }}
           style={{ transform: "rotate(45deg);" }}

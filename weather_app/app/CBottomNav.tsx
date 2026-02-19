@@ -19,7 +19,9 @@ const CurrRoute = ({ location }: Prop) => (
     }}
   >
     <Text>Currently</Text>
-    <Text>{location}</Text>
+    <View style={{ padding: 35 }}>
+      <Text>{location}</Text>
+    </View>
   </View>
 );
 const TodayRoute = ({ location }: Prop) => (
